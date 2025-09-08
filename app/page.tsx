@@ -1,6 +1,7 @@
 import ConnectWalletButton from './components/connect-wallet-button';
 import AuditorStatus from './components/auditor-status';
 import ERC20Status from './components/erc20-status';
+import DepositSection from './components/deposit-section';
 
 export default function Home() {
   return (
@@ -74,38 +75,52 @@ export default function Home() {
         </header>
 
         {/* Main Content */}
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
-          {/* Wallet Connection */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
-            <h2 className="text-2xl font-semibold mb-6 flex items-center">
-              <svg className="w-6 h-6 mr-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              Wallet Connection
-            </h2>
-            <ConnectWalletButton />
+        <div className="max-w-6xl mx-auto space-y-8">
+          {/* Top Row - 3 Columns */}
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Wallet Connection */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
+              <h2 className="text-2xl font-semibold mb-6 flex items-center">
+                <svg className="w-6 h-6 mr-3 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                Wallet Connection
+              </h2>
+              <ConnectWalletButton />
+            </div>
+
+            {/* Auditor Status */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
+              <h2 className="text-2xl font-semibold mb-6 flex items-center">
+                <svg className="w-6 h-6 mr-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Contract Auditor
+              </h2>
+              <AuditorStatus />
+            </div>
+
+            {/* ERC20 Token Status */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
+              <h2 className="text-2xl font-semibold mb-6 flex items-center">
+                <svg className="w-6 h-6 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                </svg>
+                Test Tokens
+              </h2>
+              <ERC20Status />
+            </div>
           </div>
 
-          {/* Auditor Status */}
+          {/* Bottom Row - Full Width Deposit Section */}
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
             <h2 className="text-2xl font-semibold mb-6 flex items-center">
-              <svg className="w-6 h-6 mr-3 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg className="w-6 h-6 mr-3 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
               </svg>
-              Contract Auditor
+              Encrypted Deposits
             </h2>
-            <AuditorStatus />
-          </div>
-
-          {/* ERC20 Token Status */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8">
-            <h2 className="text-2xl font-semibold mb-6 flex items-center">
-              <svg className="w-6 h-6 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-              </svg>
-              Test Tokens
-            </h2>
-            <ERC20Status />
+            <DepositSection />
           </div>
         </div>
 
